@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //WRITTEN BY BRADLEY WILLIAMSON
+// PULL REQUEST
 public class Coin : MonoBehaviour
 {
     public int coinValue = 1;
