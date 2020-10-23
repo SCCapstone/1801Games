@@ -3,14 +3,20 @@
 Galaxy Dash is a mobile game... 
 
 ## External Requirements
+* [Visual Studio Code] (https://code.visualstudio.com) 
+
+* [Unity Hub and Unity (Currently version 2019.4.11)] (https://unity3d.com/get-unity/download)
 
 ## Setup
 
 ## Running 
+In order to properly run the application, it is best to have VS Code and Unity opened at the same time. So as you update your code, Unity updates along with it and will notify you of possible syntax errors. When the application is running, at that point you can check for runtime errors and quality assurance test as well. 
 
-# Deployment 
+## Deployment 
+PLACEHOLDER
 
-# Testing
+## Testing
+
 
 ## Testing Technology 
 
