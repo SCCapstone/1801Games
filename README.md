@@ -23,7 +23,7 @@ We follow Google's C# style guide.
 
 Tariq Scott (tariqs@email.sc.edu)
 
-Bradley Williamson
+Bradley Williamson (bw5@email.sc.edu)
 
 Nick Bautista
 
