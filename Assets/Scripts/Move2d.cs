@@ -26,7 +26,7 @@ public class Move2d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    //calls jump check
+    // calls jump check
         Jump();
         // player movement
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
@@ -34,7 +34,7 @@ public class Move2d : MonoBehaviour
             // speed boost check if boost is true
         if(boost)
         {
-        // add to boost timer
+        // add 1 to boost timer
             boostTimer += Time.deltaTime;
             // reset boost
             if(boostTimer >= 5)

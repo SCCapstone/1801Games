@@ -5,9 +5,9 @@ using TMPro;
 //WRITTEN BY BRADLEY WILLIAMSON
 public class Score : MonoBehaviour
 {
-    // creates an instance of score
+    // creates an instance of Score
     public static Score instance;
-    // creates instance of text mesh for the in game text
+    // creates an instance of text mesh for the in game text
     public TextMeshProUGUI text;
     // int for score
     private int score;

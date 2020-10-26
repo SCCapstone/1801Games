@@ -4,7 +4,7 @@ using UnityEngine;
 //WRITTEN BY BRADLEY WILLIAMSON
 public class Coin : MonoBehaviour
 {
-    // changes coinValue by 1
+    // changes the coinValue by 1
     public int coinValue = 1;
     // the event that a trigger or a collison occurs
     private void OnTriggerEnter2D(Collider2D other)
