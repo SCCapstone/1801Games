@@ -32,6 +32,6 @@ Bradley Williamson (bw5@email.sc.edu)
 
 Nick Bautista (bautisn@email.sc.edu)
 
-Davonte Blakely
+Davonte Blakely (lblakely@email.sc.edu)
 
 Savannah Sun (yiqian@email.sc.edu)
