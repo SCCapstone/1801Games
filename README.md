@@ -31,7 +31,7 @@ Tariq Scott (tariqs@email.sc.edu)
 
 Bradley Williamson (bw5@email.sc.edu)
 
-Nick Bautista
+Nick Bautista (bautisn@email.sc.edu)
 
 Davonte Blakely
 
