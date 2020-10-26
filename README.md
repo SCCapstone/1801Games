@@ -21,6 +21,8 @@ VS Code:
 
 Unity:
  * To add the project itself, in the "Projects" screen, you will want to hit the "Add" and locate the files that you just downloaded from GitHub and hit "Select Folder." Unity will download the selected files, and after that you will be able to access the most recent version of the work-in-progress game. 
+ 
+ After Downloading and The project opens. Look at the top of the screen for the play button. Hitting play will allow you to use the features that are currently implemented into the game. To reset it simply press play again. To look at the other screens like settings or play again go to the assets in the bottom left and click on scenes. Open the desired scene and youll see how it was created. 
 
 ## Running 
 * To run the game and test the controls, under the root of the repository, double click on the "2d Platformer" exe file.
