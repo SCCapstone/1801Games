@@ -23,8 +23,9 @@ Unity:
  * To add the project itself, in the "Projects" screen, you will want to hit the "Add" and locate the files that you just downloaded from GitHub and hit "Select Folder." Unity will download the selected files, and after that you will be able to access the most recent version of the work-in-progress game. 
 
 ## Running 
-To run the game and test the controls, under the root of the repository, double click on the "2d Platformer" exe file.
-To modify the game, open Unity and add the "1801Games" folder as a project.
+* To run the game and test the controls, under the root of the repository, double click on the "2d Platformer" exe file.
+
+* To modify the game, open Unity and add the "1801Games" folder as a project.
 
 In order to properly run the application, it is best to have VS Code and Unity opened at the same time. So as you update your code, Unity updates along with it and will notify you of possible syntax errors. When the application is running, at that point you can check for runtime errors and quality assurance test as well. 
 
