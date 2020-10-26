@@ -35,4 +35,4 @@ Nick Bautista (bautisn@email.sc.edu)
 
 Davonte Blakely
 
-Savannah Sun
+Savannah Sun (yiqian@email.sc.edu)
