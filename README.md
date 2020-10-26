@@ -16,13 +16,17 @@ Galaxy Dash is a mobile 2D-Platformer game where the player has to survive for a
     * GitHub for Unity 
 
 ## Setup
-Once you have everything above installed, the code will be compile from VS Code. 
+VS Code:
+ * Once you have VS code installed, in order to properly program our game you need to enter the extensions screen (Ctrl+Shift+X) and download the extensions above.
+
+Unity:
+ * To add the project itself, in the "Projects" screen, you will want to hit the "Add" and locate the files that you just downloaded from GitHub and hit "Select Folder." Unity will download the selected files, and after that you will be able to access the most recent version of the work-in-progress game. 
 
 ## Running 
 In order to properly run the application, it is best to have VS Code and Unity opened at the same time. So as you update your code, Unity updates along with it and will notify you of possible syntax errors. When the application is running, at that point you can check for runtime errors and quality assurance test as well. 
 
 ## Style Guide
-We follow Google's C# style guide. 
+We follow Google's C# style guide. (https://google.github.io/styleguide/csharp-style.html)
 
 # Authors
 
@@ -32,6 +36,6 @@ Bradley Williamson (bw5@email.sc.edu)
 
 Nick Bautista (bautisn@email.sc.edu)
 
-Davonte Blakely (lblakely@email.sc.edu)
+Davonte Blakely
 
 Savannah Sun (yiqian@email.sc.edu)
