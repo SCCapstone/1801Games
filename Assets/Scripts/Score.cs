@@ -5,8 +5,11 @@ using TMPro;
 //WRITTEN BY BRADLEY WILLIAMSON
 public class Score : MonoBehaviour
 {
+    // creates an instance of score
     public static Score instance;
+    // creates instance of text mesh for the in game text
     public TextMeshProUGUI text;
+    // int for score
     private int score;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
    public void ChangeScore(int coinValue)
     {
+    // if change score is called update score and update text in game
         score += coinValue;
         text.text = "X" + score.ToString();
     }
