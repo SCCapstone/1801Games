@@ -13,15 +13,17 @@ public class StartMenu : MonoBehaviour
     {
         
     }
-
+    //loads Start Menu
     public void LoadGame() {
         string MainScreen = "MAIN SCENE";
         SceneManager.LoadScene(MainScreen);
     }
+    // loads highscores
     public void LoadHighScores() {
         string MainScreen = "highscores";
         SceneManager.LoadScene(MainScreen);
     }
+    // settings
     public void LoadSettings() {
         string MainScreen = "SettingsScreen";
         SceneManager.LoadScene(MainScreen);
