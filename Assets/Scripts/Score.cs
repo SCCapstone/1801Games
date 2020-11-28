@@ -19,7 +19,6 @@ public class Score : MonoBehaviour
             instance = this;
         }    
     }
-
     // Update is called once per frame
    public void ChangeScore(int coinValue)
     {
@@ -27,10 +26,8 @@ public class Score : MonoBehaviour
         score += coinValue;
         text.text = "X" + score.ToString();
     }
-
     public int returnScore()
     {
         return score;
     }
 }
-
