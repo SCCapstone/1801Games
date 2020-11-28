@@ -1,6 +1,6 @@
 // Written by Tariq Scott
 
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,4 +31,4 @@ public class ScoreIncrementer : MonoBehaviour {
   public void HighScore() {
     HighScoreText.Text = PlayerPrefs.GetInt("Score").ToString();
   }
-}
+}*/

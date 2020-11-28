@@ -26,6 +26,8 @@ public class Move2d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
     // calls jump check
         Jump();
         // player movement
@@ -51,10 +53,10 @@ public class Move2d : MonoBehaviour
     void Jump()
     {
     // if button down and player is grounded
-        if (Input.GetButtonDown("Jump") && isGrounded == true) {
-        // jump
+        if(Input.GetTouch(0).phase == TouchPhase.Began && isGrounded == true)
+        {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
-                }
+        }
         
     }
     // collison events
