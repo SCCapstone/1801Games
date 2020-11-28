@@ -26,8 +26,6 @@ public class Move2d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
     // calls jump check
         Jump();
         // player movement
