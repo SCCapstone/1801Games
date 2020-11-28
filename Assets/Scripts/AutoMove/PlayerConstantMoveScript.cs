@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerConstantMoveScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    GameManagerScript gameManager;
+
     void Start()
     {
-        
+        GameObject gameController = GameObject.FindGameObjectWithTag("Game Controller");
+        gameManager = gameController.GetComponent<GameManagerScript>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(gameManager.moveVector * gameManager.moveSpeed * Time.deltaTime);
     }
 }
