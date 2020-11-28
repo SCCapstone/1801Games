@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
 
     // Loads Sound Menu
     public void SoundMenu() {
-        SceneManager.LoadScene("SoundsMenu");
+        SceneManager.LoadScene("music");
     }
 
     // Loads Credits Menu
@@ -57,6 +57,6 @@ public class PauseMenu : MonoBehaviour
 
     // Loads Settings Menu
     public void SettingsMenu() {
-        SceneManager.LoadScene("SettingsMenu");
+        SceneManager.LoadScene("SettingsScreen");
     }
 }
