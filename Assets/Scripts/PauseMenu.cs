@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿// Written By Bradley Williamson
+// Edited By Tariq Scott 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-// Written By Bradley Williamson
+
 public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -41,5 +43,20 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitMenu() {
         Application.Quit();
+    }
+
+    // Loads Sound Menu
+    public void SoundMenu() {
+        SceneManager.LoadScene("SoundsMenu");
+    }
+
+    // Loads Credits Menu
+    public void CreditsMenu() {
+        SceneManager.LoadScene("CreditsMenu");
+    }
+
+    // Loads Settings Menu
+    public void SettingsMenu() {
+        SceneManager.LoadScene("SettingsMenu");
     }
 }
