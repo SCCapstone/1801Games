@@ -14,6 +14,9 @@ public class Coin : MonoBehaviour
         {
             // update the score by 1
             Score.instance.ChangeScore(coinValue);
+            FindObjectOfType<AudioManager>().Play("Coin");
         }
     }
 }
+
+//test
