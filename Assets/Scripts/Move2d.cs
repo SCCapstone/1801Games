@@ -29,8 +29,8 @@ public class Move2d : MonoBehaviour
     // calls jump check
         Jump();
         // player movement
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-            transform.position += movement * Time.deltaTime * moveSpeed;
+        Vector3 movement = Vector3.right;
+        transform.position += movement * Time.deltaTime * moveSpeed;
             // speed boost check if boost is true
         if(boost)
         {
@@ -51,11 +51,13 @@ public class Move2d : MonoBehaviour
     void Jump()
     {
     // if button down and player is grounded
-        if(Input.GetTouch(0).phase == TouchPhase.Began && isGrounded == true)
+        if(Input.touchCount > 9)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
-        }
-        
+            if(Input.GetTouch(0).phase == TouchPhase.Began && isGrounded == true)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            }
+        }    
     }
     // collison events
     public void OnTriggerEnter2D(Collider2D other)
