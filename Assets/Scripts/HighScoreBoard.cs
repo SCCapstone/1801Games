@@ -11,7 +11,7 @@ using System.ComponentModel;
 
 public class HighScoreBoard : MonoBehaviour
 {
-    public int[] Highscores = { 7,7,7,7,7,7};
+    public int[] Highscores = new int[5];
     public static HighScoreBoard instance;
     public TextMeshProUGUI text;
  
@@ -22,48 +22,60 @@ public class HighScoreBoard : MonoBehaviour
         {
             instance = this;
         }
-        
+
+        getScores();
     }
+
+
+    //Compares the pre-existing high scores to the score achieved. records if high score is achieved.
     public void CompareScore(int score)
     {
-      
-        for(int i = 0; i < Highscores.Length; i++)
+        int[] Highscores = instance.Highscores;
+        for (int i = 0; i < Highscores.Length; i++)
         {
-            if(score > Highscores[i])
+            Highscores[i] = i;
+        }
+
+        //Highest High Score case
+        if (score > Highscores[(Highscores.Length) - 1])
+        {
+            Highscores[Highscores.Length - 1] = score;
+            text.text = "New Highscore! " + Highscores[Highscores.Length - 1].ToString(); // Notify user of new high score
+        }
+
+        //All other cases
+        else { 
+            for (int i = 0; i < Highscores.Length - 1; i++)
             {
-                if((score < Highscores[i+1]) )
+             if (score > Highscores[i]) //if a highscore is obtained      
+             {
+                if(score < Highscores[i+1])
                 {
                     Highscores[i] = score;
-                    text.text = "New Highscore!";
-                    //text.text = "Highscore: " + Highscores[i].ToString();
-                    //SceneManager.LoadScene("highscores");
-
-                    break;
+                    text.text = "Score on the Board! " + Highscores[i].ToString(); // Notify user of new high score
+                    break; //End Loop
                 }
+             }
             }
         }
+        
     }
 
-    public String[] getScores()
+
+    //Returns the Array or "Board" of High Scores
+    public String[] getScores() // Gett array of high scores as string array
     {
         String[] scores = new string[Highscores.Length];
         for(int i = 0; i < Highscores.Length; i++)
         {
-            scores[i] = "Player " + i.ToString() + "           " + Highscores[i].ToString();
+            text.text = text.text +  "Score " + (i+1).ToString() + "                                          " + Highscores[i].ToString() + "\n";
         }
 
+        //text.text = scores.ToString();
         return scores;
     }
 
-    public void printScores(String[] scores)
-    {
-        String board = " ";
 
-        for(int i = 0; i < scores.Length; i++)
-        {
-            board = board + scores[i] + " \n";
-        }
-    }
 
 
     // Update is called once per frame
