@@ -21,8 +21,6 @@ public class Player : MonoBehaviour
     public void Start() {
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
-
-        
     }
     
     /*
