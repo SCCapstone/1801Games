@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 {
     public int MaxHealth = 100; // The max health the player can have
     public int CurrentHealth; // The current health the player has
+    public GameObject pauseMenuUI;
     public HealthBar healthBar;
 
     /*
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     public void Start() {
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
+        Time.timeScale = 1f;
     }
     
     /*
@@ -28,13 +30,16 @@ public class Player : MonoBehaviour
         P is a placeholder to make the player take temporary damage.
     */
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P)) {
-            TakeDamage(20);
-       }
         if (CurrentHealth == 0)
         {
-            SceneManager.LoadScene("Health System");
+            Dead();
         }
+    }
+
+    public void Dead() {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        //SceneManager.LoadScene("StartMenu");
     }
 
     /*

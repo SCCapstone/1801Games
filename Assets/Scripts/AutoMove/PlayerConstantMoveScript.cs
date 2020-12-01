@@ -1,21 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// //written by Tariq Scott
 
-public class PlayerConstantMoveScript : MonoBehaviour
-{
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-    GameManagerScript gameManager;
+// public class PlayerConstantMoveScript : MonoBehaviour
+// {
 
-    void Start()
-    {
-        GameObject gameController = GameObject.FindGameObjectWithTag("Game Controller");
-        gameManager = gameController.GetComponent<GameManagerScript>();
+//     GameManagerScript gameManager;
 
-    }
+//     void Start()
+//     {
+//         GameObject gameController = GameObject.FindGameObjectWithTag("Game Controller");
+//         gameManager = gameController.GetComponent<GameManagerScript>();
 
-    void Update()
-    {
-        transform.Translate(gameManager.moveVector * gameManager.moveSpeed * Time.deltaTime);
-    }
-}
+//     }
+
+//     void Update()
+//     {
+//         transform.Translate(gameManager.moveVector * gameManager.moveSpeed * Time.deltaTime);
+//     }
+// }

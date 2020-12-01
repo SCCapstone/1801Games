@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 //WRITTEN BY BRADLEY WILLIAMSON
 public class Score : MonoBehaviour
 {
+
     // creates an instance of Score
     public static Score instance;
     // creates an instance of text mesh for the in game text
     public TextMeshProUGUI text;
+    public Text playAgainText;
     // int for score
     private int score;
     // Start is called before the first frame update
@@ -24,7 +27,8 @@ public class Score : MonoBehaviour
     {
     // if change score is called update score and update text in game
         score += coinValue;
-        text.text = "X" + score.ToString();
+        text.text = score.ToString();
+        playAgainText.text = score.ToString();
     }
     public int returnScore()
     {

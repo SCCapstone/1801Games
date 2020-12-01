@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         
     }
     // pause method, activates the menu and slows time
-    void Pause() {
+    public void Pause() {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;
