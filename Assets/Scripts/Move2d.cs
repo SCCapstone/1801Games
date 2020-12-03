@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Move2d : MonoBehaviour
 {
-
+    [SerializeField] ParticleSystem collectParticle;
     public ScoreManager scoreManager;
     //player speed
     public float moveSpeed = 5f;
@@ -68,6 +68,7 @@ public class Move2d : MonoBehaviour
         // jump
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
             isGrounded = false;
+            collectParticle.Play();
         }
     }
     // collison events

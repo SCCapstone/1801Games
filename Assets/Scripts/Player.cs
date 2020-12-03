@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public int CurrentHealth; // The current health the player has
     public GameObject pauseMenuUI;
     public HealthBar healthBar;
+    public ScoreManager scoreManager;
+    public Score score;
 
     /*
      * Start gives the player full health when the game first starts. 
@@ -33,12 +35,15 @@ public class Player : MonoBehaviour
         if (CurrentHealth == 0)
         {
             Dead();
+            
         }
     }
 
     public void Dead() {
+        scoreManager.checkScore(score.returnScore());
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        
         //SceneManager.LoadScene("StartMenu");
     }
 
