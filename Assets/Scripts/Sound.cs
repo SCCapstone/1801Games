@@ -1,4 +1,8 @@
-﻿using UnityEngine.Audio;
+﻿// Written by Bradley Williamson
+// Edited by Tariq Scott 
+// Sound.cs manages the volume of in-game sounds. 
+
+using UnityEngine.Audio;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,7 +17,8 @@ public class Sound
   [Range(.1f, 1f)]
   public float pitch;
 
+  public bool loop;
+
  [HideInInspector]
   public AudioSource source;
-
 }
