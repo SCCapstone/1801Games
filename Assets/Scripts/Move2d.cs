@@ -80,7 +80,7 @@ public class Move2d : MonoBehaviour
             Score.instance.ChangeScore(coinValue);
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("Coin");
-            scoreManager.checkScore(Score.instance.returnScore());
+            //scoreManager.checkScore(Score.instance.returnScore());
         }
         // if collison with gem destroy gem set move speed and boost true
         if (other.gameObject.CompareTag("Gem"))

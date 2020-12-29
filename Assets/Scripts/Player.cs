@@ -35,16 +35,18 @@ public class Player : MonoBehaviour
         if (CurrentHealth == 0)
         {
             Dead();
-            
+            CurrentHealth = 100;
         }
     }
 
-    public void Dead() {
-        scoreManager.checkScore(score.returnScore());
+    void Dead() {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+
+        //Check to see if a high score is achieved
+        CurrentHealth = 100;
+        scoreManager.checkScore(score.returnScore());
         
-        //SceneManager.LoadScene("StartMenu");
     }
 
     /*
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
       way to zero. The visual health bar is 
       updated as well. 
     */
-    void TakeDamage(int Damage)
+    public void TakeDamage(int Damage)
     {
             CurrentHealth -= Damage;
             healthBar.SetHealth(CurrentHealth);
@@ -68,7 +70,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Crystal"))
         {
-            TakeDamage(20);
+            TakeDamage(100);
         }
         if (other.gameObject.CompareTag("Potion"))
         {
