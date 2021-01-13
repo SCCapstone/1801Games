@@ -32,6 +32,8 @@ Unity:
 In order to properly run the application, it is best to have VS Code and Unity opened at the same time. So as you update your code, Unity updates along with it and will notify you of possible syntax errors. When the application is running, at that point you can check for runtime errors and quality assurance test as well. 
 
 ## Testing
+* All Tests located in Assets/Tests/
+
 * Unit Test
 
 * Behavioral Test
