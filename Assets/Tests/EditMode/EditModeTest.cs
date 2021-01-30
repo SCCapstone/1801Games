@@ -10,9 +10,13 @@ namespace Tests
     {
         // A Test behaves as an ordinary method
         [Test]
-        public void EditModeTestSimplePasses()
+        public void All_Highscores_Are_Stored_Properly()
         {
-            // Use the Assert class to test conditions
+           Assert.AreEqual(true,PlayerPrefs.HasKey("HighScore1"));
+           Assert.AreEqual(true,PlayerPrefs.HasKey("HighScore2"));
+           Assert.AreEqual(true,PlayerPrefs.HasKey("HighScore3"));
+           Assert.AreEqual(true,PlayerPrefs.HasKey("HighScore4"));
+           Assert.AreEqual(true,PlayerPrefs.HasKey("HighScore5"));
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
