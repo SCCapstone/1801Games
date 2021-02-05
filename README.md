@@ -34,9 +34,17 @@ In order to properly run the application, it is best to have VS Code and Unity o
 ## Testing
 * All Tests located in Assets/Tests/
 
-* Unit Test
-
-* Behavioral Test
+    * Both unit and behaviorals are located in ../EditMode. In Unity, edit mode tests are where non-runtime tests belong.
+    
+        * In Unity, the test files are located in the exact same spot.
+    
+    * How to run all tests:
+    
+        * In Unity, go to Window/General/Test Runner. The test runner will then open.
+        
+        * You will not have to import any assemblies. We use the predefined assemblies NUnit tests and Unity Test Runner.
+        
+        * Once you are set, locate the C# script you are testing inside of the test runner and select it. Once selected, click "run selected" and your test will return. You can also select "run all" to run all tests.
 
 ## Style Guide
 We follow Google's C# style guide. (https://google.github.io/styleguide/csharp-style.html)
