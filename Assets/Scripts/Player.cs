@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         P is a placeholder to make the player take temporary damage.
     */
     void Update() {
-        if (CurrentHealth == 0)
+        if (CurrentHealth <= 0)
         {
             Dead();
             CurrentHealth = 100;
@@ -71,11 +71,16 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Crystal"))
         {
             TakeDamage(100);
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Potion"))
         {
             giveHealth(20);
             Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(2);
         }
     }
    
