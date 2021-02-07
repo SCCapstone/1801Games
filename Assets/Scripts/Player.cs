@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Crystal"))
         {
-            TakeDamage(100);
+            TakeDamage(20);
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Potion"))
@@ -82,6 +82,9 @@ public class Player : MonoBehaviour
         {
             TakeDamage(2);
         }
+        if(other.gameObject.CompareTag("Floor"))
+        {
+            TakeDamage(10000);
+        }
     }
-   
 }
