@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System.Globalization;
 using System;
 
 public class highScore : MonoBehaviour
 {
     public static highScore instance;
-    public TextMeshProUGUI text;
+    public String text;
     int highS;
     int num = 0;
     public String[] board = {"Player                                                  7",
@@ -27,7 +26,7 @@ public class highScore : MonoBehaviour
 
         for (int i = 0; i < board.Length; i++)
         {
-            text.text = text.text + board[i] + "\n";
+            text = text + board[i] + "\n";
         }
 
 
@@ -47,7 +46,7 @@ public class highScore : MonoBehaviour
     public void ChangehighScore(int coinValue)
     {
         highS += coinValue;
-        text.text = "1." + highS.ToString();
+        text = "1." + highS.ToString();
     }
  
    

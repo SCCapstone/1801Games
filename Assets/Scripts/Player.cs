@@ -1,5 +1,5 @@
 ﻿/*
- * Written by Tariq Scott
+ * Written by Tariq Scott,DaVonte Blakely
  * Player.cs tracks the players health
 */
 
@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public Score score;
     public bool invincible;
     public float timer = 0;
+    [SerializeField] private GameObject rock;
     /*
      * Start gives the player full health when the game first starts. 
        It also sets the visual health bar at max health, which is 100.
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
                 timer = 0;
             }
         }
+        ThrowRock();
     }
 
     void Dead() {
@@ -57,6 +59,31 @@ public class Player : MonoBehaviour
         CurrentHealth = 100;
         scoreManager.checkScore(score.returnScore());
         
+    }
+
+    public void ThrowRock()
+    {
+        //Add Touch Controls
+        if(Input.touchCount > 1)
+        {
+            if(Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                var playerPos = GameObject.Find("Player").transform.position;
+                playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
+                var newRock = Instantiate(rock,playerPos,Quaternion.identity);
+                Destroy(newRock,2f);
+            }
+        }
+
+
+        if(Input.GetButtonDown("Throw"))
+        {
+            var playerPos = GameObject.Find("Player").transform.position;
+            playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
+            var newRock = Instantiate(rock,playerPos,Quaternion.identity);
+            Destroy(newRock,2f);
+        }
+
     }
 
     /*

@@ -1,5 +1,5 @@
 ﻿// Classes Jump, OnTriggerEnter2D Written By Bradley Williamson
-
+// Jump, OnTriggerEnter2D modified by DaVonte Blakely
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -67,9 +67,11 @@ public class Move2d : MonoBehaviour
         }
         //TouchPhase.Began
         // if button down and player is grounded
-        if(Input.touchCount > 0) {
-            if((Input.GetTouch(0).phase == 0) && (isGrounded == true))
+        if(Input.touchCount == 1) {
+
+            if((Input.GetTouch(0).phase == TouchPhase.Began) && (isGrounded == true))
             {
+
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
                 if(jumps>=2)
                 {

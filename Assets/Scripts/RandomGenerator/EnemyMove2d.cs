@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyMove2d : MonoBehaviour
 {
     public float moveSpeed = 10f;
-    public float maxJumpHeight = 5f; 
+    public float maxJumpHeight = 4f; 
     public float timer = 0;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,11 @@ public class EnemyMove2d : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //Add in Sound 
+        }
+        if(other.gameObject.CompareTag("Rock"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
