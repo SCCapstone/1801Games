@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ScoreManager scoreManager;
     public Score score;
-
+    public bool invincible;
+    public float timer = 0;
     /*
      * Start gives the player full health when the game first starts. 
        It also sets the visual health bar at max health, which is 100.
@@ -36,6 +37,15 @@ public class Player : MonoBehaviour
         {
             Dead();
             CurrentHealth = 100;
+        }
+        if(invincible == true)
+        {
+           timer += Time.deltaTime;
+            if(timer > 7)
+            {
+                invincible = false;
+                timer = 0;
+            }
         }
     }
 
@@ -70,21 +80,41 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Crystal"))
         {
-            TakeDamage(20);
+            if(invincible == false)
+            {
+                TakeDamage(20);
+            }
+
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Potion"))
         {
             giveHealth(20);
+            if(invincible == false)
+            {
+                if(CurrentHealth > 100)
+                {
+                    CurrentHealth = 100;
+                }
+            }
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage(2);
+            if(invincible == false)
+            {
+                TakeDamage(2);
+            }           
         }
         if(other.gameObject.CompareTag("Floor"))
         {
-            TakeDamage(10000);
+          TakeDamage(CurrentHealth);
+        }
+        if(other.gameObject.CompareTag("Invincibility"))
+        {
+            invincible = true;
+            //Add Particles
+            Destroy(other.gameObject);
         }
     }
 }

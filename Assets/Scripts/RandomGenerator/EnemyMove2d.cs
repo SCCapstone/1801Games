@@ -6,8 +6,8 @@ using UnityEngine;
 public class EnemyMove2d : MonoBehaviour
 {
     public float moveSpeed = 10f;
-    public float jumpHeight = 2f;
-    int count = 0;
+    public float maxJumpHeight = 5f; 
+    public float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,25 +17,24 @@ public class EnemyMove2d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         if(Random.Range(1,100) < 5)
-        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-
-        if(count > 1200)
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, maxJumpHeight), ForceMode2D.Impulse);
+        if(timer > 3)
         {
-            count = 0;
+            timer = 0;
         }
         // Enemy movemen
         Vector3 movementL = Vector3.left;
         Vector3 movementR = Vector3.right;
-        if(count < 600)
+        if(timer < 1.5)
         {
             transform.position += movementL * Time.deltaTime * moveSpeed;
         }
-        else if(count > 600)
+        else if(timer > 1.5)
         {
              transform.position += movementR * Time.deltaTime * moveSpeed;
         }
-        count++;
         
     }
 
