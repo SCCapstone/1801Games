@@ -10,9 +10,19 @@ namespace Tests
     {
         // A Test behaves as an ordinary method
         [Test]
-        public void PlayModeSimplePasses()
+        public void GameObjects_Are_Generated()
         {
             // Use the Assert class to test conditions
+            
+            SceneManager.LoadScene("MAIN SCENE");
+            GameObject player = GameObject.Find("Player");
+            var playerFound = GameObject.FindGameObjectsWithTag("Player");
+            var enemyFound = GameObject.FindGameObjectsWithTag("Enemy");
+            // Use the Assert class to test conditions.
+            // Use yield to skip a frame.
+            PlayModeWithEnumeratorPasses();
+            Assert.NotNull(playerFound);
+            Assert.NotNull(enemyFound);
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
@@ -22,14 +32,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator PlayModeWithEnumeratorPasses()
         {
-
-            SceneManager.LoadScene("MAIN SCENE");
-            GameObject player = GameObject.Find("Player");
-            
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return new WaitForSeconds(3f);
-            Assert.NotNull(player);
+            Assert.IsTrue(true);
             yield return null;
         }
     }

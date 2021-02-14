@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Written by Tariq Scott,DaVonte Blakely
  * Player.cs tracks the players health
 */
@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ScoreManager scoreManager;
     public Score score;
+    float temp = 0;
     public bool invincible;
-    public float timer = 0;
+    public TextMeshProUGUI text;
+    public float timer = 7;
     [SerializeField] private GameObject rock;
     /*
      * Start gives the player full health when the game first starts. 
@@ -41,11 +44,19 @@ public class Player : MonoBehaviour
         }
         if(invincible == true)
         {
-           timer += Time.deltaTime;
-            if(timer > 7)
+            temp += Time.deltaTime;
+            text.text = Mathf.Ceil(timer).ToString() + "s";
+            if(Mathf.Floor(temp) == 1)
+            {
+                timer -= temp;
+                temp = 0;
+
+            }
+            if(timer < 0)
             {
                 invincible = false;
-                timer = 0;
+                timer = 7;
+                text.text = "";
             }
         }
         ThrowRock();
@@ -64,14 +75,18 @@ public class Player : MonoBehaviour
     public void ThrowRock()
     {
         //Add Touch Controls
-        if(Input.touchCount > 1)
+        if(Input.touchCount > 0)
         {
             if(Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                var playerPos = GameObject.Find("Player").transform.position;
-                playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
-                var newRock = Instantiate(rock,playerPos,Quaternion.identity);
-                Destroy(newRock,2f);
+               if(Input.GetTouch(0).position.x > (Screen.width/2))
+               {
+                    var playerPos = GameObject.Find("Player").transform.position;
+                    playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
+                    var newRock = Instantiate(rock,playerPos,Quaternion.identity);
+                    Destroy(newRock,2f);
+               }
+
             }
         }
 
@@ -139,9 +154,10 @@ public class Player : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Invincibility"))
         {
-            invincible = true;
             //Add Particles
             Destroy(other.gameObject);
+            timer = 7;
+            invincible = true;
         }
     }
 }

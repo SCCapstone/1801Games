@@ -71,15 +71,17 @@ public class Move2d : MonoBehaviour
 
             if((Input.GetTouch(0).phase == TouchPhase.Began) && (isGrounded == true))
             {
-
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-                if(jumps>=2)
+                if(Input.GetTouch(0).position.x < (Screen.width/2))
                 {
-                    isGrounded = false;
-                    jumps = 0;
+                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+                    if(jumps>=2)
+                    {
+                        isGrounded = false;
+                        jumps = 0;
+                    }
+                    jumps++;
+                    collectParticle.Play();
                 }
-                jumps++;
-                collectParticle.Play();
             }
         }
         if (Input.GetButtonDown("Jump") && isGrounded == true) {

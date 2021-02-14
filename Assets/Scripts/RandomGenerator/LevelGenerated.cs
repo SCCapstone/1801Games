@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelGenerated : MonoBehaviour
 {
-    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 200f;
+    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 100f;
 
     [SerializeField] private Transform proceduralGeneration_start;
     [SerializeField] private List<Transform> proceduralGeneration_list;
@@ -33,6 +33,7 @@ public class LevelGenerated : MonoBehaviour
         Transform chosenLevelPart = proceduralGeneration_list[Random.Range(0,proceduralGeneration_list.Count)];
         Transform lastProGenTransform = SpawProcGen(chosenLevelPart, lastEndPosition);
         lastEndPosition = lastProGenTransform.Find("EndPosition").position;
+        Destroy(lastProGenTransform.gameObject,15f);
     }
     private Transform SpawProcGen(Transform levelPart, Vector3 spawnPosition)
     {
