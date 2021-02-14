@@ -34,7 +34,7 @@ In order to properly run the application, it is best to have VS Code and Unity o
 ## Testing
 * All Tests located in Assets/Tests/
 
-    * Both unit and behaviorals are located in ../EditMode ../PlayMode. In Unity, edit mode tests are where non-runtime tests belong and play mode are where runtime tests belong.
+    * Both unit and behaviorals are located in ../EditMode and ../PlayMode. In Unity, edit mode tests are where non-runtime tests belong and play mode are where runtime tests belong.
     
         * In Unity, the test files are located in the exact same spot.
     
