@@ -33,11 +33,12 @@ public class HighScoreBoard : MonoBehaviour
     //Returns the Array or "Board" of High Scores
     public String[] printScores() // Gett array of high scores as string array
     {
+        text.text = "";
         Highscores = scoreManager.getArray(); 
         String[] scores = new string[Highscores.Length];
         for(int i = 0; i < Highscores.Length; i++)
         {
-            text.text = text.text +  "Score " + (i+1).ToString() + "                                          " + Highscores[i].ToString() + "\n";
+            text.text = text.text +  " Score " + (i+1).ToString() + "                                          " + Highscores[i].ToString() + "\n";
         }
 
         return scores;
@@ -46,6 +47,6 @@ public class HighScoreBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        printScores();
     }
 }

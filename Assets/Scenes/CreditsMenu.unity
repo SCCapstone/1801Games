@@ -534,9 +534,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'DAVONTE BLAKELY '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -668,9 +667,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nick Bautista
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -885,9 +883,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CREDITS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1866,9 +1863,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bradley Williamson
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2002,9 +1998,8 @@ MonoBehaviour:
 
     Sun'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2442,9 +2437,8 @@ MonoBehaviour:
 
     Scott'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2650,9 +2644,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CREDITS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47fa2e9c42cf91845ae11c4fcba5d353, type: 2}
-  m_sharedMaterial: {fileID: -6600244173305902846, guid: 47fa2e9c42cf91845ae11c4fcba5d353,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2676,8 +2669,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 84
-  m_fontSizeBase: 84
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

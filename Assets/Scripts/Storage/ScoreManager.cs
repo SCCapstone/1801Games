@@ -97,7 +97,7 @@ public class ScoreManager : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore2", score);
                 PlayerPrefs.Save();
                 checkScore(temp);
-        }
+            }
 
             else if (score > PlayerPrefs.GetInt("HighScore3", 0))
             {

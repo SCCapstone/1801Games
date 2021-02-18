@@ -1,5 +1,6 @@
 ﻿// Classes Jump, OnTriggerEnter2D Written By Bradley Williamson
 // Jump, OnTriggerEnter2D modified by DaVonte Blakely
+// Boost Class edited by Davonte Blakely
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,8 +22,9 @@ public class Move2d : MonoBehaviour
     // Coin value
     public int coinValue = 1;
     // for speed boost
-    public float boostTimer;
+    public float boostTimer = 0;
     public bool boost;
+    public float boostSpeed = 12f;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -35,27 +37,36 @@ public class Move2d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    // calls jump check
+        //player movement
+        ConstantMove();
+        //calls jump check
         Jump();
-        // player movement
+        //calls boost check
+        Boost();
+    }
+
+    void ConstantMove()
+    {
         Vector3 movement = Vector3.right;
         transform.position += movement * Time.deltaTime * moveSpeed;
-        // speed boost check if boost is true
+    }
+
+    void Boost()
+    {
         if(boost)
         {
-        // add 1 to boost timer
+            moveSpeed = boostSpeed;
+            // add 1 to boost timer
             boostTimer += Time.deltaTime;
             // reset boost
-            if(boostTimer >= 5)
+            if(boostTimer >= 3)
             {
-                moveSpeed = 15f;
                 boostTimer = 0;
+                moveSpeed = 9f;
                 boost = false;
             }
         }
     }
-
-  
 
     void Jump()
     {
@@ -105,13 +116,12 @@ public class Move2d : MonoBehaviour
             Score.instance.ChangeScore(coinValue);
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("Coin");
-            //scoreManager.checkScore(Score.instance.returnScore());
         }
         // if collison with gem destroy gem set move speed and boost true
         if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
-            moveSpeed = 10f;
+            //moveSpeed = 10f;
             boost = true;
         }
         if(other.gameObject.CompareTag("Ground"))

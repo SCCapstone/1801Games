@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
      * Start gives the player full health when the game first starts. 
        It also sets the visual health bar at max health, which is 100.
     */
-    public void Start() {
+    public void Start() 
+    {
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
         Time.timeScale = 1f;
@@ -36,12 +37,16 @@ public class Player : MonoBehaviour
         Update makes the player take damage. 20 in this case.
         P is a placeholder to make the player take temporary damage.
     */
-    void Update() {
-        if (CurrentHealth <= 0)
-        {
-            Dead();
-            CurrentHealth = 100;
-        }
+    void Update() 
+    {
+        Dead();
+        IsInvincible();
+        ThrowRock();
+    }
+
+    //Code for Invinciblity Status
+    void IsInvincible()
+    {
         if(invincible == true)
         {
             temp += Time.deltaTime;
@@ -59,19 +64,27 @@ public class Player : MonoBehaviour
                 text.text = "";
             }
         }
-        ThrowRock();
     }
 
-    void Dead() {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+    
+    //On Death Checks
+    void Dead() 
+    {
+        if (CurrentHealth <= 0)
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
 
-        //Check to see if a high score is achieved
-        CurrentHealth = 100;
-        scoreManager.checkScore(score.returnScore());
-        
+            //Check to see if a high score is achieved
+            CurrentHealth = 100;
+            scoreManager.checkScore(score.returnScore());
+            CurrentHealth = 100;
+        }
+ 
     }
 
+    
+    //Code for throwing rocks
     public void ThrowRock()
     {
         //Add Touch Controls
@@ -118,6 +131,7 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(CurrentHealth);
     }
 
+    //Player interactions with other objects
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Crystal"))
