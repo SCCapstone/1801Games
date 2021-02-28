@@ -42,7 +42,6 @@ public class EnemyMove2d : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Add in Sound 
         }
         if(other.gameObject.CompareTag("Rock"))
         {
