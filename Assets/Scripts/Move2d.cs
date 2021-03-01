@@ -12,8 +12,9 @@ public class Move2d : MonoBehaviour
 {
     [SerializeField] ParticleSystem collectParticle;
     public ScoreManager scoreManager;
+    public float defaultSpeed = 9;
     //player speed
-    public float moveSpeed = 9f;
+    public float moveSpeed;
     // bool check to see if player is on the ground
     public bool isGrounded = false;
     //jump height
@@ -26,10 +27,22 @@ public class Move2d : MonoBehaviour
     public bool boost;
     public float boostSpeed = 12f;
     public Animator animator;
+    public Vector3 dash = Vector3.right;
+    public bool dashing = false;
+    public float dashSpeed = 200f;
+    public float dashTimer = 0;
+    // for slowdown
+    public bool slow;
+    public float slowTimer = 0;
+    public float slowSpeed = 6f;
     // Start is called before the first frame update
     void Start()
     {
     // intiates boost and its timer
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+        animator = GetComponent<Animator>();
+        moveSpeed = defaultSpeed;
         boostTimer = 0;
         boost = false;
     }
@@ -43,6 +56,9 @@ public class Move2d : MonoBehaviour
         Jump();
         //calls boost check
         Boost();
+        //calls dash check
+        Dash();    
+    
     }
 
     void ConstantMove()
@@ -56,22 +72,51 @@ public class Move2d : MonoBehaviour
         if(boost)
         {
             moveSpeed = boostSpeed;
-            // add 1 to boost timer
             boostTimer += Time.deltaTime;
             // reset boost
             if(boostTimer >= 3)
             {
                 boostTimer = 0;
-                moveSpeed = 9f;
+                moveSpeed = defaultSpeed;
                 boost = false;
             }
         }
     }
 
+    void Slow()
+    {
+        if(slow)
+        {
+            moveSpeed = slowSpeed;
+            slowTimer += Time.deltaTime;
+            if (slowTimer >= 3)
+            {
+                slowTimer = 0;
+                moveSpeed = defaultSpeed;
+                slow = false;
+            }
+        }
+    }
+
+    void Dash()
+    {
+        if(dashing)
+        {
+            moveSpeed = dashSpeed;
+            dashTimer += Time.deltaTime;
+            if(dashTimer >= .02)
+            {
+                dashTimer = 0;
+                moveSpeed = defaultSpeed;
+                dashing = false;
+            }
+        }
+    }
     void Jump()
     {
-        if(jumps >= 2)
+        if(jumps >= 3 )
         {
+            dashing = true;
             jumps = 0;
             isGrounded = false;
             return;
@@ -84,27 +129,26 @@ public class Move2d : MonoBehaviour
             {
                 if(Input.GetTouch(0).position.x < (Screen.width/2))
                 {
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-                    if(jumps>=2)
+                    if(jumps <= 2)
                     {
-                        isGrounded = false;
-                        jumps = 0;
+                        animator.SetBool("isJumping", true);
+                        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+                        jumps++;
+                        collectParticle.Play();
                     }
-                    jumps++;
-                    collectParticle.Play();
+
                 }
             }
         }
         if (Input.GetButtonDown("Jump") && isGrounded == true) {
         // jump
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-            if(jumps>=2)
+            if(jumps <= 2)
             {
-                isGrounded = false;
-                jumps = 0;
+                animator.SetBool("isJumping", true);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+                jumps++;
+                collectParticle.Play();
             }
-            jumps++;
-            collectParticle.Play();
         }
     }
     // collison events
@@ -121,13 +165,18 @@ public class Move2d : MonoBehaviour
         if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
-            //moveSpeed = 10f;
             boost = true;
         }
         if(other.gameObject.CompareTag("Ground"))
         {
+            animator.SetBool("isJumping", false);
             isGrounded = true;
             jumps=0;
+        }
+        if(other.gameObject.CompareTag("Slow"))
+        {
+            Destroy(other.gameObject);
+            slow = true;
         }
     }
 }
