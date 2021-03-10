@@ -58,7 +58,6 @@ public class Move2d : MonoBehaviour
         Boost();
         //calls dash check
         Dash();    
-    
     }
 
     void ConstantMove()
