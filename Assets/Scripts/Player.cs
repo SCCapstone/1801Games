@@ -98,7 +98,8 @@ public class Player : MonoBehaviour
                     playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
                     var newRock = Instantiate(rock,playerPos,Quaternion.identity);
                     Destroy(newRock,2f);
-               }
+                    
+                }
 
             }
         }
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour
             playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
             var newRock = Instantiate(rock,playerPos,Quaternion.identity);
             Destroy(newRock,2f);
+            FindObjectOfType<AudioManager>().Play("Rock");
         }
 
     }
@@ -138,10 +140,11 @@ public class Player : MonoBehaviour
         {
             if(invincible == false)
             {
-                TakeDamage(20);
+                TakeDamage(25);
+                FindObjectOfType<AudioManager>().Play("Hit");
             }
-
             Destroy(other.gameObject);
+
         }
         if (other.gameObject.CompareTag("Potion"))
         {
@@ -159,7 +162,8 @@ public class Player : MonoBehaviour
         {
             if(invincible == false)
             {
-                TakeDamage(2);
+                TakeDamage(10);
+                FindObjectOfType<AudioManager>().Play("Hit");
             }           
         }
         if(other.gameObject.CompareTag("Floor"))

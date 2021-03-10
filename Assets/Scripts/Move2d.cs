@@ -135,6 +135,7 @@ public class Move2d : MonoBehaviour
                         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
                         jumps++;
                         collectParticle.Play();
+                        FindObjectOfType<AudioManager>().Play("Jump");
                     }
 
                 }
@@ -147,7 +148,9 @@ public class Move2d : MonoBehaviour
                 animator.SetBool("isJumping", true);
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
                 jumps++;
+                FindObjectOfType<AudioManager>().Play("Jump");
                 collectParticle.Play();
+                
             }
         }
     }
@@ -166,14 +169,16 @@ public class Move2d : MonoBehaviour
         {
             Destroy(other.gameObject);
             boost = true;
+            FindObjectOfType<AudioManager>().Play("Coin");
         }
         if(other.gameObject.CompareTag("Ground"))
         {
             animator.SetBool("isJumping", false);
             isGrounded = true;
             jumps=0;
+            
         }
-        if(other.gameObject.CompareTag("Slow"))
+        if (other.gameObject.CompareTag("Slow"))
         {
             Destroy(other.gameObject);
             slow = true;
