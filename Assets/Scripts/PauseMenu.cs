@@ -1,4 +1,4 @@
-﻿// Written By Bradley Williamson
+// Written By Bradley Williamson
 // Edited By Tariq Scott 
 using System.Collections;
 using System.Collections.Generic;
@@ -59,4 +59,14 @@ public class PauseMenu : MonoBehaviour
     public void SettingsMenu() {
         SceneManager.LoadScene("SettingsScreen");
     }
+
+    //Loads First Tutorial Screen
+    public void TutorialScreenOne() {
+        SceneManager.LoadScene("TutorialScreenOne");
+        }
+
+    // Loads Seconds Tutorial Screen
+    public void TutorialScreenTwo() {
+        SceneManager.LoadScene("TutorialScreenTwo");
+     }
 }
