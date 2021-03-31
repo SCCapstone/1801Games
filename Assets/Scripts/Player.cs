@@ -1,5 +1,5 @@
 /*
- * Written by Tariq Scott,DaVonte Blakely, Bradley Williamson
+ * Written by Tariq Scott,DaVonte Blakely
  * Player.cs tracks the players health
 */
 
@@ -131,15 +131,6 @@ public class Player : MonoBehaviour
     {
         CurrentHealth += health;
         healthBar.SetHealth(CurrentHealth);
-        /***CHEAT MODE***/
-        if (Input.GetKeyUp(KeyCode.Backslash)) {
-            int i = 100;
-            while (i == 100) {
-                CurrentHealth += i;
-                i++;
-            }
-        }
-        /***CHEAT MODE END***/
     }
 
     //Player interactions with other objects
