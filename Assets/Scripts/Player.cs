@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public bool invincible;
     public TextMeshProUGUI text;
     public float timer = 7;
+    public int numRocks;
     [SerializeField] private GameObject rock;
     /*
      * Start gives the player full health when the game first starts. 
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
+        numRocks = 10;
         Time.timeScale = 1f;
     }
     
@@ -66,6 +68,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void addRock()
+    {
+        numRocks++;
+    }
     
     //On Death Checks
     void Dead() 
@@ -88,7 +94,7 @@ public class Player : MonoBehaviour
     public void ThrowRock()
     {
         //Add Touch Controls
-        if(Input.touchCount > 0)
+        if(Input.touchCount > 0 && numRocks > 0)
         {
             if(Input.GetTouch(0).phase == TouchPhase.Began)
             {
@@ -98,20 +104,21 @@ public class Player : MonoBehaviour
                     playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
                     var newRock = Instantiate(rock,playerPos,Quaternion.identity);
                     Destroy(newRock,2f);
-                    
+                    numRocks--;
                 }
 
             }
         }
 
 
-        if(Input.GetButtonDown("Throw"))
+        if(Input.GetButtonDown("Throw") && numRocks > 0)
         {
             var playerPos = GameObject.Find("Player").transform.position;
             playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
             var newRock = Instantiate(rock,playerPos,Quaternion.identity);
             Destroy(newRock,2f);
             FindObjectOfType<AudioManager>().Play("Rock");
+            numRocks--;
         }
 
     }
@@ -131,6 +138,15 @@ public class Player : MonoBehaviour
     {
         CurrentHealth += health;
         healthBar.SetHealth(CurrentHealth);
+        /***CHEAT MODDE***/
+        if (Input.GetKeyDown(KeyCode.Backslash)) {
+            int i = 0;
+            while(i <= 1001) {
+                CurrentHealth += i;
+                i++;
+            }
+        }
+        /***CHEAT MODE ENDS***/
     }
 
     //Player interactions with other objects
