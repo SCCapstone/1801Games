@@ -26,6 +26,17 @@ public class Move2d : MonoBehaviour
     public float boostTimer = 0;
     public bool boost;
     public float boostSpeed = 12f;
+
+    public StatTracker statTracker;
+
+    //Variables For Stats 
+    public int enemiesHit;
+    public int totalCoins;
+    public int speedBoost;
+    public int invincibilityGems;
+    public int healthPotionsCollected;
+    //End Variables For Stats
+
     public Animator animator;
     public Vector3 dash = Vector3.right;
     public bool dashing = false;
@@ -58,6 +69,7 @@ public class Move2d : MonoBehaviour
         Boost();
         //calls dash check
         Dash();    
+    
     }
 
     void ConstantMove()
@@ -159,6 +171,7 @@ public class Move2d : MonoBehaviour
     // if collision with coin destroy coin
         if (other.gameObject.CompareTag("Coin"))
         {
+            statTracker.updateStats(0,1,0,0,0);
             Score.instance.ChangeScore(coinValue);
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("Coin");
@@ -166,9 +179,9 @@ public class Move2d : MonoBehaviour
         // if collison with gem destroy gem set move speed and boost true
         if (other.gameObject.CompareTag("Gem"))
         {
+            statTracker.updateStats(0,0,1,0,0);
             Destroy(other.gameObject);
             boost = true;
-            FindObjectOfType<AudioManager>().Play("Coin");
         }
         if(other.gameObject.CompareTag("Ground"))
         {
@@ -177,10 +190,20 @@ public class Move2d : MonoBehaviour
             jumps=0;
             
         }
+        if(other.gameObject.CompareTag("Crystal"))
+        {
+            Destroy(other.gameObject);
+        }
         if (other.gameObject.CompareTag("Slow"))
         {
             Destroy(other.gameObject);
             slow = true;
         }
+        if(other.gameObject.CompareTag("RockPickup"))
+        {
+            Destroy(other.gameObject);
+            gameObject.GetComponent<Player>().addRock();
+        }
     }
 }
+

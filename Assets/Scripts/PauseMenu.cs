@@ -69,4 +69,11 @@ public class PauseMenu : MonoBehaviour
     public void TutorialScreenTwo() {
         SceneManager.LoadScene("TutorialScreenTwo");
      }
+
+    public void LoadStats() {
+        SceneManager.LoadScene("Stats");
+    }
+    public void LoadScores() {
+        SceneManager.LoadScene("highscores");
+    }
 }

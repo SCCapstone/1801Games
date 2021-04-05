@@ -9,6 +9,15 @@ TagManager:
   - Gem
   - Crystal
   - Potion
+  - Particles
+  - Spike
+  - Floor
+  - Enemy
+  - Invincibility
+  - Rock
+  - Slow
+  - RockPickup
+  - Bullet
   layers:
   - Default
   - TransparentFX

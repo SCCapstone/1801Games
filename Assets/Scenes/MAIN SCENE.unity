@@ -150,7 +150,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c26e0888c7874459bb53952eb5fa37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Hit
+    clip: {fileID: 8300000, guid: 2bfe4e205d5578741b2023844c50c57c, type: 3}
+    volume: 0.724
+    pitch: 0.354
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: a20c0407fd304094bbc80ab070c56052, type: 3}
+    volume: 0.83
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Rock
+    clip: {fileID: 8300000, guid: ffc9e913b6daa724391a951eb2706acc, type: 3}
+    volume: 0.416
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: f7f32062f73d577468379bb72311b28d, type: 3}
+    volume: 0.357
+    pitch: 0.869
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &8944988
 Transform:
   m_ObjectHideFlags: 0

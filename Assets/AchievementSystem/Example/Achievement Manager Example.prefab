@@ -158,30 +158,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5828106412749028890, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5828106412749028890, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_Size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5828700596380768718, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5868980714116406978, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5869116409126469268, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869893063367083816, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
@@ -251,12 +236,7 @@ PrefabInstance:
     - target: {fileID: 5869893064832991959, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: m_Name
-      value: Achievement Manager Example
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991959, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Achievement Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
@@ -419,17 +399,17 @@ PrefabInstance:
     - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: States.Array.data[0].Achieved
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: States.Array.data[3].Progress
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: States.Array.data[3].LastProgressUpdate
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
@@ -538,51 +518,6 @@ PrefabInstance:
       propertyPath: AchievementList.Array.data[4].Progression
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[1].Progress
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[1].LastProgressUpdate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[1].Achieved
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[2].Achieved
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[3].Achieved
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[4].Progress
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[4].Achieved
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[5].Progress
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869893064832991960, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: States.Array.data[5].Achieved
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5869893064832991961, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -673,21 +608,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5938356482526620724, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938356482526620724, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938356482526620724, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5938667314797307658, guid: 31c71d95d8fbeb7479842253d3964958,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -772,16 +692,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 3505
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939664217533349928, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939664217533349928, guid: 31c71d95d8fbeb7479842253d3964958,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31c71d95d8fbeb7479842253d3964958, type: 3}

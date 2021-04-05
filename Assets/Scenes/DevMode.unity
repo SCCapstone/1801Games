@@ -839,6 +839,7 @@ GameObject:
   - component: {fileID: 430191172}
   - component: {fileID: 430191173}
   - component: {fileID: 430191175}
+  - component: {fileID: 430191171}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -939,7 +940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430191164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 833310c753e318f4eb6a28c782226fa3, type: 3}
   m_Name: 
@@ -984,11 +985,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 015f78a4f1b7f2e4eb304b383849e11f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &430191170
 BoxCollider2D:
@@ -1016,6 +1017,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.31, y: 4.7999997}
   m_EdgeRadius: 0
+--- !u!114 &430191171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430191164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21cd2b4a379a1814f8afae6a1b95c75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectParticle: {fileID: 749985240}
+  scoreManager: {fileID: 0}
+  defaultSpeed: 9
+  moveSpeed: 5
+  speed: 3
+  isGrounded: 0
+  jumpHeight: 15.6
+  jumps: 0
+  coinValue: 1
+  boostTimer: 0
+  boost: 0
+  boostSpeed: 12
+  animator: {fileID: 0}
+  dash: {x: 1, y: 0, z: 0}
+  dashing: 0
+  dashSpeed: 200
+  dashTimer: 0
+  slow: 0
+  slowTimer: 0
+  slowSpeed: 6
 --- !u!114 &430191172
 MonoBehaviour:
   m_ObjectHideFlags: 0

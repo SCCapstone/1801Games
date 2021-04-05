@@ -16,10 +16,21 @@ public class Player : MonoBehaviour
     public GameObject pauseMenuUI;
     public HealthBar healthBar;
     public ScoreManager scoreManager;
+    public StatTracker statTracker;
+
+    //Variables For Stats 
+    public int spikesHit;
+    public int totalCoins;
+    public int speedBoost;
+    public int invincibilityGems;
+    public int healthPotionsCollected;
+    //End Variables For Stats
+
     public Score score;
     float temp = 0;
     public bool invincible;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI invincibilityText;
+    public TextMeshProUGUI numRocksText;
     public float timer = 7;
     public int numRocks;
     [SerializeField] private GameObject rock;
@@ -32,7 +43,13 @@ public class Player : MonoBehaviour
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
         numRocks = 10;
+        numRocksText.text = numRocks.ToString();
         Time.timeScale = 1f;
+        spikesHit = 0;
+        totalCoins = 0;
+        speedBoost = 0;
+        invincibilityGems = 0;
+        healthPotionsCollected = 0;
     }
     
     /*
@@ -52,7 +69,7 @@ public class Player : MonoBehaviour
         if(invincible == true)
         {
             temp += Time.deltaTime;
-            text.text = Mathf.Ceil(timer).ToString() + "s";
+            invincibilityText.text = Mathf.Ceil(timer).ToString() + "s";
             if(Mathf.Floor(temp) == 1)
             {
                 timer -= temp;
@@ -63,14 +80,18 @@ public class Player : MonoBehaviour
             {
                 invincible = false;
                 timer = 7;
-                text.text = "";
+                invincibilityText.text = "";
             }
         }
     }
 
     public void addRock()
     {
-        numRocks++;
+        if(numRocks < 10)
+        {
+            numRocks++;
+            numRocksText.text = numRocks.ToString();
+        }
     }
     
     //On Death Checks
@@ -85,6 +106,7 @@ public class Player : MonoBehaviour
             CurrentHealth = 100;
             scoreManager.checkScore(score.returnScore());
             CurrentHealth = 100;
+            statTracker.updateStats(spikesHit,totalCoins,speedBoost,invincibilityGems,healthPotionsCollected);
         }
  
     }
@@ -105,6 +127,7 @@ public class Player : MonoBehaviour
                     var newRock = Instantiate(rock,playerPos,Quaternion.identity);
                     Destroy(newRock,2f);
                     numRocks--;
+                    numRocksText.text = numRocks.ToString();
                 }
 
             }
@@ -119,6 +142,7 @@ public class Player : MonoBehaviour
             Destroy(newRock,2f);
             FindObjectOfType<AudioManager>().Play("Rock");
             numRocks--;
+            numRocksText.text = numRocks.ToString();
         }
 
     }
@@ -159,7 +183,7 @@ public class Player : MonoBehaviour
                 TakeDamage(25);
                 FindObjectOfType<AudioManager>().Play("Hit");
             }
-            Destroy(other.gameObject);
+            spikesHit++;
 
         }
         if (other.gameObject.CompareTag("Potion"))
@@ -172,6 +196,7 @@ public class Player : MonoBehaviour
                     CurrentHealth = 100;
                 }
             }
+            healthPotionsCollected++;
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Enemy"))
@@ -180,6 +205,7 @@ public class Player : MonoBehaviour
             {
                 TakeDamage(10);
                 FindObjectOfType<AudioManager>().Play("Hit");
+                
             }           
         }
         if(other.gameObject.CompareTag("Floor"))
@@ -189,6 +215,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("Invincibility"))
         {
             //Add Particles
+            invincibilityGems++;
             Destroy(other.gameObject);
             timer = 7;
             invincible = true;
