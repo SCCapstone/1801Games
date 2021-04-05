@@ -1,4 +1,4 @@
-﻿// written by ?
+﻿// written by Bradley Williamson
 // edited by Tariq Scott 
 using System.Collections;
 using System.Collections.Generic;
@@ -35,8 +35,19 @@ public class StartMenu : MonoBehaviour
 
     // loads tutorial
     public void LoadTutorial() {
-        string MainScreen = "tutorialScreen";
+        string MainScreen = "TutorialScreenOne";
         SceneManager.LoadScene(MainScreen);
+    }
+	
+    // loads Stats
+    public void LoadStats() {
+        SceneManager.LoadScene("Stats");
+    }
+
+    // loads dev move 
+    public void LoadDevMode() {
+        string MainScreen = "DevMode";
+        SceneManager.LoadScene("DevMode");
     }
     
 }
