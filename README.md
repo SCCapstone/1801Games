@@ -46,6 +46,13 @@ In order to properly run the application, it is best to have VS Code and Unity o
         
         * Once you are set, locate the C# script you are testing inside of the test runner and select it. Once selected, click "run selected" and your test will return. You can also select "run all" to run all tests.
 
+## DEV MODE
+For Developer Mode:
+
+Developer mode is for PC testing. You have the ability to move up(Up arrow key), down(Down arrow key), left (Left Arrow key) and right (Right arrow key).
+As for any other dev/cheat mode, you are granted invincibility and can traverse anywhere you would like to in the game.
+
+
 ## Style Guide
 We follow Google's C# style guide. (https://google.github.io/styleguide/csharp-style.html)
 
