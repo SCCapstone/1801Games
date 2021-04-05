@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//By Yiqian Sun
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,7 +32,7 @@ public class LevelGenerated : MonoBehaviour
 
         //if (pfTestingPlateform!= null)
         //{
-            Debug.Log("Using Debug Testing Platform!");
+         //   Debug.Log("Using Debug Testing Platform!");
         //}
         int startingSpawnLevelParts = 5;
         for( int i = 0; i < startingSpawnLevelParts; i++)
@@ -58,9 +60,9 @@ public class LevelGenerated : MonoBehaviour
         }
         Transform chosenLevelPart = DifficultyLevelPartList[Random.Range(0,DifficultyLevelPartList.Count)];
     
-        //if (pfTestingPlateform!= null)
+       // if (pfTestingPlateform!= null)
         //{
-          //  chosenLevelPart = pfTestingPlateform;
+         //   chosenLevelPart = pfTestingPlateform;
         //}
         Transform lastProGenTransform = SpawProcGen(chosenLevelPart, lastEndPosition);
         lastEndPosition = lastProGenTransform.Find("EndPosition").position;
@@ -73,9 +75,9 @@ public class LevelGenerated : MonoBehaviour
     }
     private Difficulty GetDifficulty()
     {
-        if (levelPartSpawned >= 15) return Difficulty.Imp;
-        if (levelPartSpawned >= 10) return Difficulty.Hard;
-        if (levelPartSpawned >= 5) return Difficulty.MD;
+        if (levelPartSpawned >= 24) return Difficulty.Imp;
+        if (levelPartSpawned >= 16) return Difficulty.Hard;
+        if (levelPartSpawned >= 8) return Difficulty.MD;
         return Difficulty.EZ;
     }
 }
