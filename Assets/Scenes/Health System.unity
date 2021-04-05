@@ -563,13 +563,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833310c753e318f4eb6a28c782226fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectParticle: {fileID: 0}
   scoreManager: {fileID: 0}
+  defaultSpeed: 9
   moveSpeed: 5
   isGrounded: 0
+  jumpHeight: 15.6
+  jumps: 0
   coinValue: 1
   boostTimer: 0
   boost: 0
+  boostSpeed: 12
+  statTracker: {fileID: 0}
+  enemiesHit: 0
+  totalCoins: 0
+  speedBoost: 0
+  invincibilityGems: 0
+  healthPotionsCollected: 0
   animator: {fileID: 0}
+  dash: {x: 1, y: 0, z: 0}
+  dashing: 0
+  dashSpeed: 200
+  dashTimer: 0
+  slow: 0
+  slowTimer: 0
+  slowSpeed: 6
 --- !u!50 &430191169
 Rigidbody2D:
   serializedVersion: 4
@@ -646,7 +664,19 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 0}
   healthBar: {fileID: 1807553900}
   scoreManager: {fileID: 0}
+  statTracker: {fileID: 0}
+  spikesHit: 0
+  totalCoins: 0
+  speedBoost: 0
+  invincibilityGems: 0
+  healthPotionsCollected: 0
   score: {fileID: 0}
+  invincible: 0
+  invincibilityText: {fileID: 0}
+  numRocksText: {fileID: 0}
+  timer: 7
+  numRocks: 0
+  rock: {fileID: 0}
 --- !u!114 &430191173
 MonoBehaviour:
   m_ObjectHideFlags: 0

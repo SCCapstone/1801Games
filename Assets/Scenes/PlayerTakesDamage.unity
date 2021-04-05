@@ -1775,7 +1775,19 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 436813687}
   healthBar: {fileID: 1283070247}
   scoreManager: {fileID: 607542496}
+  statTracker: {fileID: 0}
+  spikesHit: 0
+  totalCoins: 0
+  speedBoost: 0
+  invincibilityGems: 0
+  healthPotionsCollected: 0
   score: {fileID: 1665051299}
+  invincible: 0
+  invincibilityText: {fileID: 0}
+  numRocksText: {fileID: 0}
+  timer: 7
+  numRocks: 0
+  rock: {fileID: 0}
 --- !u!114 &607542499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1849,13 +1861,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectParticle: {fileID: 0}
   scoreManager: {fileID: 0}
+  defaultSpeed: 9
   moveSpeed: 9
   isGrounded: 0
   jumpHeight: 15.6
+  jumps: 0
   coinValue: 1
   boostTimer: 0
   boost: 0
+  boostSpeed: 12
+  statTracker: {fileID: 0}
+  enemiesHit: 0
+  totalCoins: 0
+  speedBoost: 0
+  invincibilityGems: 0
+  healthPotionsCollected: 0
   animator: {fileID: 0}
+  dash: {x: 1, y: 0, z: 0}
+  dashing: 0
+  dashSpeed: 200
+  dashTimer: 0
+  slow: 0
+  slowTimer: 0
+  slowSpeed: 6
 --- !u!95 &607542503
 Animator:
   serializedVersion: 3
@@ -8417,13 +8445,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proceduralGeneration_start: {fileID: 1606640544}
-  proceduralGeneration_list:
-  - {fileID: 2733701820798757698, guid: a4eaf39dac5e6924780fe652af8901be, type: 3}
-  - {fileID: 1406532268702838342, guid: 3d3e1b6fafc53104bbefbb2c4a60dc8d, type: 3}
-  - {fileID: 5483779939108081304, guid: c99d3af1bea9ccf46a48fdc0c6cea842, type: 3}
-  - {fileID: 674017797007927852, guid: 8944b15d030631a4d9e6045670e9cae5, type: 3}
-  - {fileID: 2733701820798757698, guid: a4eaf39dac5e6924780fe652af8901be, type: 3}
-  - {fileID: 7791859059856015328, guid: f6b4237ee6728de4c853706faa847978, type: 3}
+  proceduralGenerationEZ_list: []
+  proceduralGenerationMD_list: []
+  proceduralGenerationHard_list: []
+  proceduralGenerationImp_list: []
   player: {fileID: 607542505}
 --- !u!4 &1302083782
 Transform:
@@ -8704,9 +8729,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c3244c5a6b10c6049ba3900e48a7d884, type: 2}
-  m_sharedMaterial: {fileID: 8219026045763073366, guid: c3244c5a6b10c6049ba3900e48a7d884,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

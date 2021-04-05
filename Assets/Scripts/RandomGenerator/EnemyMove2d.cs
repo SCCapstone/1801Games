@@ -8,6 +8,10 @@ public class EnemyMove2d : MonoBehaviour
     public float moveSpeed = 10f;
     public float maxJumpHeight = 4f; 
     public float timer = 0;
+
+    public StatTracker statTracker;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,7 @@ public class EnemyMove2d : MonoBehaviour
         {
             timer = 0;
         }
-        // Enemy movemen
+        // Enemy movement
         Vector3 movementL = Vector3.left;
         Vector3 movementR = Vector3.right;
         if(timer < 1.5)
@@ -44,7 +48,7 @@ public class EnemyMove2d : MonoBehaviour
         {
         }
         if(other.gameObject.CompareTag("Rock"))
-        {
+        {    
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
