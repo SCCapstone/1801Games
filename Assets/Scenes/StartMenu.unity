@@ -522,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 5186633651384623694, guid: 5d14c4e9e102b3c4bb8067f8e87b6d16,
         type: 3}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5186633651384623694, guid: 5d14c4e9e102b3c4bb8067f8e87b6d16,
         type: 3}
@@ -2340,8 +2340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 267.2, y: -174}
-  m_SizeDelta: {x: 232.78174, y: 30}
+  m_AnchoredPosition: {x: 271.2, y: -176}
+  m_SizeDelta: {x: 252.72095, y: 74.142365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724683162
 MonoBehaviour:
