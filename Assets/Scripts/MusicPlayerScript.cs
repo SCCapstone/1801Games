@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// written by tariq scott, bradley williamson, nick bautista
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
