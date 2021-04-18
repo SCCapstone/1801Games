@@ -2,32 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MusicPlayerScript : MonoBehaviour
 {
     public AudioSource AudioSource;
+    public MainTheme mainTheme;
+    public AudioSource bgMusic;
+    public Slider bgmVolumeSlider;
+    public Slider sfxVolumeSlider;
     public float musicVolume;
     //public float coinVolume = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        AudioSource.Play();
-        if(PlayerPrefs.HasKey("MusicVolume"))
-            musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-        else
-            musicVolume = 0.5f;
-    }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Awake()
     {
-        AudioSource.volume = musicVolume;
+        bgMusic = mainTheme.mainTheme;
+        if(PlayerPrefs.HasKey("MusicVolume"))
+        {
+            musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            bgMusic.volume = musicVolume;
+        }
+        else
+        {
+            musicVolume = 0.5f;
+            PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        }   
     }
 
     public void updateMusic(float volume) {
         PlayerPrefs.SetFloat("MusicVolume", volume);
         musicVolume = volume;
-        AudioSource.volume = musicVolume;
+        mainTheme.UpdateMusic(musicVolume);
+        bgMusic.volume = musicVolume;
     }
 }
