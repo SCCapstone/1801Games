@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8548685220662733935}
   - component: {fileID: 8548685220662733932}
   - component: {fileID: 8548685220662733933}
+  - component: {fileID: 6567202246463900083}
   m_Layer: 0
   m_Name: AstroStay_Enemy
   m_TagString: Enemy
@@ -130,7 +131,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8548685220662733933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d835bd20c2e74ea4c96d460cf516c1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectParticle: {fileID: 0}
   moveSpeed: 1
   maxJumpHeight: 4
   timer: 0
+  statTracker: {fileID: 6567202246463900083}
+--- !u!114 &6567202246463900083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548685220662733931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36ea08c1ec83bd408d19b7a0cd98dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

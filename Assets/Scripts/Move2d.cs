@@ -8,12 +8,14 @@ using System.Collections.Specialized;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class Move2d : MonoBehaviour
 {
     [SerializeField] ParticleSystem collectParticle;
     public ScoreManager scoreManager;
+    public float defaultSpeed = 9;
     //player speed
-    public float moveSpeed = 9f;
+    public float moveSpeed;
     // bool check to see if player is on the ground
     public bool isGrounded = false;
     //jump height
@@ -22,20 +24,45 @@ public class Move2d : MonoBehaviour
     // Coin value
     public int coinValue = 1;
     // for speed boost
-    public float boostTimer = 0;
+    public float boostTimer = 4;
+    public float temp = 0;
     public bool boost;
     public float boostSpeed = 12f;
+
+    public StatTracker statTracker;
+
+    //Variables For Stats 
+    public int enemiesHit;
+    public int totalCoins;
+    public int speedBoost;
+    public int invincibilityGems;
+    public int healthPotionsCollected;
+    //End Variables For Stats
+
+        public TextMeshProUGUI SpeedBoostText;
     public Animator animator;
+    public Vector3 dash = Vector3.right;
+    public bool dashing = false;
+    public float dashSpeed = 200f;
+    public float dashTimer = 0;
+    // for slowdown
+    public bool slow;
+    public float slowTimer = 0;
+    public float slowSpeed = 6f;
     // Start is called before the first frame update
     void Start()
     {
     // intiates boost and its timer
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+        animator = GetComponent<Animator>();
+        moveSpeed = defaultSpeed;
         boostTimer = 0;
         boost = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         //player movement
         ConstantMove();
@@ -43,6 +70,8 @@ public class Move2d : MonoBehaviour
         Jump();
         //calls boost check
         Boost();
+        //calls dash check
+        Dash();    
     }
 
     void ConstantMove()
@@ -56,22 +85,60 @@ public class Move2d : MonoBehaviour
         if(boost)
         {
             moveSpeed = boostSpeed;
-            // add 1 to boost timer
-            boostTimer += Time.deltaTime;
+            temp += Time.deltaTime;
+            SpeedBoostText.text = Mathf.Ceil(boostTimer).ToString() + "s";
             // reset boost
-            if(boostTimer >= 3)
+            if(Mathf.Floor(temp) == 1)
             {
-                boostTimer = 0;
-                moveSpeed = 9f;
+                boostTimer -= temp;
+                temp = 0;
+
+            }
+
+            if(boostTimer < 0)
+            {
+                boostTimer = 4;
+                moveSpeed = defaultSpeed;
                 boost = false;
+                SpeedBoostText.text = "";
             }
         }
     }
 
+    void Slow()
+    {
+        if(slow)
+        {
+            moveSpeed = slowSpeed;
+            slowTimer += Time.deltaTime;
+            if (slowTimer >= 3)
+            {
+                slowTimer = 0;
+                moveSpeed = defaultSpeed;
+                slow = false;
+            }
+        }
+    }
+
+    void Dash()
+    {
+        if(dashing)
+        {
+            moveSpeed = dashSpeed;
+            dashTimer += Time.deltaTime;
+            if(dashTimer >= .02)
+            {
+                dashTimer = 0;
+                moveSpeed = defaultSpeed;
+                dashing = false;
+            }
+        }
+    }
     void Jump()
     {
-        if(jumps >= 2)
+        if(jumps >= 3 )
         {
+            dashing = true;
             jumps = 0;
             isGrounded = false;
             return;
@@ -82,29 +149,31 @@ public class Move2d : MonoBehaviour
 
             if((Input.GetTouch(0).phase == TouchPhase.Began) && (isGrounded == true))
             {
-                if(Input.GetTouch(0).position.x < (Screen.width/2))
+                if(Input.GetTouch(0).position.x < (Screen.width/2) && Input.GetTouch(0).position.y < (Screen.height * .90))
                 {
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-                    if(jumps>=2)
+                    if(jumps <= 2)
                     {
-                        isGrounded = false;
-                        jumps = 0;
+                        animator.SetBool("isJumping", true);
+                        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+                        jumps++;
+                        collectParticle.Play();
+                        FindObjectOfType<AudioManager>().Play("Jump");
                     }
-                    jumps++;
-                    collectParticle.Play();
+
                 }
             }
         }
         if (Input.GetButtonDown("Jump") && isGrounded == true) {
         // jump
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-            if(jumps>=2)
+            if(jumps <= 2)
             {
-                isGrounded = false;
-                jumps = 0;
+                animator.SetBool("isJumping", true);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+                jumps++;
+                collectParticle.Play();
+                FindObjectOfType<AudioManager>().Play("Jump");
+                
             }
-            jumps++;
-            collectParticle.Play();
         }
     }
     // collison events
@@ -113,6 +182,7 @@ public class Move2d : MonoBehaviour
     // if collision with coin destroy coin
         if (other.gameObject.CompareTag("Coin"))
         {
+            statTracker.updateStats(0,1,0,0,0);
             Score.instance.ChangeScore(coinValue);
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("Coin");
@@ -120,14 +190,32 @@ public class Move2d : MonoBehaviour
         // if collison with gem destroy gem set move speed and boost true
         if (other.gameObject.CompareTag("Gem"))
         {
+            statTracker.updateStats(0,0,1,0,0);
             Destroy(other.gameObject);
-            //moveSpeed = 10f;
+            boostTimer = 4;
             boost = true;
         }
         if(other.gameObject.CompareTag("Ground"))
         {
+            animator.SetBool("isJumping", false);
             isGrounded = true;
             jumps=0;
+            
+        }
+        if(other.gameObject.CompareTag("Crystal"))
+        {
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Slow"))
+        {
+            Destroy(other.gameObject);
+            slow = true;
+        }
+        if(other.gameObject.CompareTag("RockPickup"))
+        {
+            Destroy(other.gameObject);
+            gameObject.GetComponent<Player>().addRock();
         }
     }
 }
+

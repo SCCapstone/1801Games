@@ -11,12 +11,10 @@ public class SettingsSlider : MonoBehaviour
    public AudioMixer audioMixer;
 
    public void setMusic(float music) {
-       audioMixer.SetFloat("music", Mathf.Log10(music) * 20);
+       audioMixer.SetFloat("music", Mathf.Log10(music)*20);
    }
 
-//    public void setSound(float sound) {
-//        audioMixer.SetFloat("sound", sound);
-//    }
-
-
+    public void setSound(float sound) {
+        audioMixer.SetFloat("sound", sound);
+    }
 }
