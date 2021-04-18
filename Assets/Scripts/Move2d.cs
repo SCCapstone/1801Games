@@ -8,7 +8,6 @@ using System.Collections.Specialized;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 public class Move2d : MonoBehaviour
 {
     [SerializeField] ParticleSystem collectParticle;
@@ -24,8 +23,7 @@ public class Move2d : MonoBehaviour
     // Coin value
     public int coinValue = 1;
     // for speed boost
-    public float boostTimer = 4;
-    public float temp = 0;
+    public float boostTimer = 0;
     public bool boost;
     public float boostSpeed = 12f;
 
@@ -39,7 +37,6 @@ public class Move2d : MonoBehaviour
     public int healthPotionsCollected;
     //End Variables For Stats
 
-        public TextMeshProUGUI SpeedBoostText;
     public Animator animator;
     public Vector3 dash = Vector3.right;
     public bool dashing = false;
@@ -62,7 +59,7 @@ public class Move2d : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         //player movement
         ConstantMove();
@@ -72,6 +69,7 @@ public class Move2d : MonoBehaviour
         Boost();
         //calls dash check
         Dash();    
+    
     }
 
     void ConstantMove()
@@ -85,22 +83,13 @@ public class Move2d : MonoBehaviour
         if(boost)
         {
             moveSpeed = boostSpeed;
-            temp += Time.deltaTime;
-            SpeedBoostText.text = Mathf.Ceil(boostTimer).ToString() + "s";
+            boostTimer += Time.deltaTime;
             // reset boost
-            if(Mathf.Floor(temp) == 1)
+            if(boostTimer >= 3)
             {
-                boostTimer -= temp;
-                temp = 0;
-
-            }
-
-            if(boostTimer < 0)
-            {
-                boostTimer = 4;
+                boostTimer = 0;
                 moveSpeed = defaultSpeed;
                 boost = false;
-                SpeedBoostText.text = "";
             }
         }
     }
@@ -149,7 +138,7 @@ public class Move2d : MonoBehaviour
 
             if((Input.GetTouch(0).phase == TouchPhase.Began) && (isGrounded == true))
             {
-                if(Input.GetTouch(0).position.x < (Screen.width/2) && Input.GetTouch(0).position.y < (Screen.height * .90))
+                if(Input.GetTouch(0).position.x < (Screen.width/2))
                 {
                     if(jumps <= 2)
                     {
@@ -170,8 +159,8 @@ public class Move2d : MonoBehaviour
                 animator.SetBool("isJumping", true);
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
                 jumps++;
-                collectParticle.Play();
                 FindObjectOfType<AudioManager>().Play("Jump");
+                collectParticle.Play();
                 
             }
         }
@@ -192,7 +181,6 @@ public class Move2d : MonoBehaviour
         {
             statTracker.updateStats(0,0,1,0,0);
             Destroy(other.gameObject);
-            boostTimer = 4;
             boost = true;
         }
         if(other.gameObject.CompareTag("Ground"))

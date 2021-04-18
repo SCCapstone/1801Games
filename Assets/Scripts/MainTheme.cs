@@ -11,7 +11,7 @@ public class MainTheme : MonoBehaviour
 
     public static MainTheme isPlaying;
     public AudioSource mainTheme;
-    public float musicVolume = .5f;
+    public float musicVolume;
     // Start is called before the first frame update
     void Awake() //Awake is called right before start
     {
@@ -26,18 +26,11 @@ public class MainTheme : MonoBehaviour
             Destroy(transform.gameObject);
         }
         if(PlayerPrefs.HasKey("MusicVolume"))
-        {
             musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-            mainTheme.volume = musicVolume;
-        }
         else
-        {
-            musicVolume = 0.2f;
-            mainTheme.volume = musicVolume;
-        }
-            
+            musicVolume = 0.5f;
 
-        
+        mainTheme.volume = musicVolume;
     }
 
     public void PlayTheme()
@@ -45,11 +38,6 @@ public class MainTheme : MonoBehaviour
         if(mainTheme.isPlaying)
             return;
         mainTheme.Play();
-    }
-
-    public void UpdateMusic(float volume)
-    {
-        mainTheme.volume = volume;
     }
 }
 

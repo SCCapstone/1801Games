@@ -1,15 +1,14 @@
 /*
- * Written by Tariq Scott,DaVonte Blakely, Yiqian Sun, Nick Bautista
+ * Written by Tariq Scott,DaVonte Blakely
  * Player.cs tracks the players health
 */
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+
 public class Player : MonoBehaviour
 {
     public int MaxHealth = 100; // The max health the player can have
@@ -19,13 +18,6 @@ public class Player : MonoBehaviour
     public ScoreManager scoreManager;
     public StatTracker statTracker;
 
-    //variable for player flashes
-    private bool flashActive;
-    public float flashLength;
-    private float flashCounter;
-
-    private SpriteRenderer playerSprite;
-    
     //Variables For Stats 
     public int spikesHit;
     public int totalCoins;
@@ -42,7 +34,6 @@ public class Player : MonoBehaviour
     public float timer = 7;
     public int numRocks;
     [SerializeField] private GameObject rock;
-    [SerializeField] private GameObject floatingTextprefab;
     /*
      * Start gives the player full health when the game first starts. 
        It also sets the visual health bar at max health, which is 100.
@@ -59,7 +50,6 @@ public class Player : MonoBehaviour
         speedBoost = 0;
         invincibilityGems = 0;
         healthPotionsCollected = 0;
-        playerSprite = GetComponent<SpriteRenderer>();
     }
     
     /*
@@ -71,33 +61,6 @@ public class Player : MonoBehaviour
         Dead();
         IsInvincible();
         ThrowRock();
-        isFlashing();
-    }
-
-    void isFlashing()
-    {
-        if(flashActive)
-        {
-            if(flashCounter > flashLength * .66f)
-            {
-               playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f);
-            }
-            else if(flashCounter > flashLength * .33f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
-            }
-            else if(flashCounter > 0f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f);
-            }
-            else
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
-                flashActive = false;
-            }
-
-            flashCounter -= Time.deltaTime;
-        }
     }
 
     //Code for Invinciblity Status
@@ -105,7 +68,6 @@ public class Player : MonoBehaviour
     {
         if(invincible == true)
         {
-	        playerSprite.color = new Color(playerSprite.color.r, 0.5f, playerSprite.color.g, playerSprite.color.b);
             temp += Time.deltaTime;
             invincibilityText.text = Mathf.Ceil(timer).ToString() + "s";
             if(Mathf.Floor(temp) == 1)
@@ -121,17 +83,15 @@ public class Player : MonoBehaviour
                 invincibilityText.text = "";
             }
         }
-        else
-        {
-            playerSprite.color = new Color(playerSprite.color.r, 1f, playerSprite.color.g, playerSprite.color.b);
-        }
     }
 
     public void addRock()
     {
-
-            numRocks+= 5;
+        if(numRocks < 10)
+        {
+            numRocks++;
             numRocksText.text = numRocks.ToString();
+        }
     }
     
     //On Death Checks
@@ -160,7 +120,7 @@ public class Player : MonoBehaviour
         {
             if(Input.GetTouch(0).phase == TouchPhase.Began)
             {
-               if(Input.GetTouch(0).position.x > (Screen.width/2) && Input.GetTouch(0).position.y < (Screen.height * .90))
+               if(Input.GetTouch(0).position.x > (Screen.width/2))
                {
                     var playerPos = GameObject.Find("Player").transform.position;
                     playerPos.Set(playerPos.x + 1, playerPos.y + 1,playerPos.z);
@@ -195,18 +155,8 @@ public class Player : MonoBehaviour
     */
     public void TakeDamage(int Damage)
     {
-        //ShowDamage(Damage.ToString());
             CurrentHealth -= Damage;
             healthBar.SetHealth(CurrentHealth);
-
-            flashActive = true;
-            flashCounter = flashLength;
-    }
-
-    void ShowDamage(string text)
-    {
-        GameObject prefab = Instantiate(floatingTextprefab, transform.position, Quaternion.identity);
-        prefab.GetComponentInChildren<TextMesh>().text = text;
     }
     void giveHealth(int health)
     {
@@ -230,10 +180,11 @@ public class Player : MonoBehaviour
         {
             if(invincible == false)
             {
-                TakeDamage(20);
+                TakeDamage(25);
                 FindObjectOfType<AudioManager>().Play("Hit");
             }
             spikesHit++;
+
         }
         if (other.gameObject.CompareTag("Potion"))
         {
@@ -246,23 +197,16 @@ public class Player : MonoBehaviour
                 }
             }
             healthPotionsCollected++;
-	    Destroy(other.gameObject);
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
             if(invincible == false)
             {
                 TakeDamage(10);
-                FindObjectOfType<AudioManager>().Play("Hit");  
-            }           
-        }
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            if(invincible == false)
-            {
-                TakeDamage(10);
                 FindObjectOfType<AudioManager>().Play("Hit");
-            }
+                
+            }           
         }
         if(other.gameObject.CompareTag("Floor"))
         {

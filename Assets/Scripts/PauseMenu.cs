@@ -70,10 +70,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("TutorialScreenTwo");
      }
 
-    public void TutorialScreenThree() {
-        SceneManager.LoadScene("TutorialScreenThree");
-     }
-
     public void LoadStats() {
         SceneManager.LoadScene("Stats");
     }
