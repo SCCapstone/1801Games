@@ -32,7 +32,7 @@ Unity:
 In order to properly run the application, it is best to have VS Code and Unity opened at the same time. So as you update your code, Unity updates along with it and will notify you of possible syntax errors. When the application is running, at that point you can check for runtime errors and quality assurance test as well. 
 
 ## Testing
-* All Tests located in Assets/Tests/
+* All Tests are located in Assets/Tests/
 
     * Both unit and behaviorals are located in ../EditMode and ../PlayMode. In Unity, edit mode tests are where non-runtime tests belong and play mode are where runtime tests belong.
     
@@ -49,8 +49,9 @@ In order to properly run the application, it is best to have VS Code and Unity o
 ## DEV MODE
 For Developer Mode:
 
-Developer mode is for PC testing. You have the ability to move up(Up arrow key), down(Down arrow key), left (Left Arrow key) and right (Right arrow key).
-As for any other dev/cheat mode, you are granted invincibility and can traverse anywhere you would like to in the game.
+Developer mode is for both PC and Android testing. You are able to move around and play the game the same way you would in the regular game, however, as for any other dev/cheat
+mode, you are granted invincibility and unrestricted movement. Also, none of the scores or stats achieved in developer mode are recorded in order to keep your authentic stats
+and scores in tact. 
 
 
 ## Style Guide
