@@ -75,9 +75,9 @@ public class LevelGenerated : MonoBehaviour
     }
     private Difficulty GetDifficulty()
     {
-        if (levelPartSpawned >= 24) return Difficulty.Imp;
-        if (levelPartSpawned >= 16) return Difficulty.Hard;
-        if (levelPartSpawned >= 8) return Difficulty.MD;
+        if (levelPartSpawned >= 30) return Difficulty.Imp;
+        if (levelPartSpawned >= 20) return Difficulty.Hard;
+        if (levelPartSpawned >= 10) return Difficulty.MD;
         return Difficulty.EZ;
     }
 }
