@@ -1,3 +1,5 @@
+/* Made by Nick Bautista and Yiqian Sun */
+
 body {
   background: rgb(0, 104, 135);
   background: linear-gradient(
@@ -59,4 +61,29 @@ a:hover {
 
 ul {
   color: white;
+}
+
+@media screen and (max-width: 576px) {
+  iframe {
+    width: 100%;
+    height: 180px;
+  }
+}
+@media screen and (max-width: 768px) {
+  iframe {
+    width: 100%;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 992px) {
+  iframe {
+    width: 100%;
+    height: 350px;
+  }
+}
+@media screen and (min-width: 993px) {
+  iframe {
+    width: 100%;
+    height: 600px;
+  }
 }
