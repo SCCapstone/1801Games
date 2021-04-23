@@ -1,0 +1,62 @@
+body {
+  background: rgb(0, 104, 135);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 104, 135, 1) 0%,
+    rgba(0, 19, 33, 1) 100%
+  );
+}
+
+@font-face {
+  font-family: "alien-encounter";
+  src: url(/website/Alien-Encounters-Regular.ttf);
+}
+@font-face {
+  font-family: "alien-encounter-italic";
+  src: url(/website/Alien-Encounters-Italic.ttf);
+}
+
+.assignment {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  background: #a68d77;
+  border-radius: 5px;
+  box-shadow: 5px 10px #261d1a;
+}
+
+.assignment img {
+  width: 200px;
+  border: 2px solid #734d2d;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px #8b4513;
+}
+
+h1 {
+  color: #fff;
+  font-family: "alien-encounter-italic";
+}
+
+p {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.assignment a:hover {
+  color: #261d1a;
+}
+
+ul {
+  color: white;
+}
