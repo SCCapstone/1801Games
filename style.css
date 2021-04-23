@@ -1,0 +1,39 @@
+body{
+    background: #F2EAD0;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
+.assignment{
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 30px;
+    background: #A68D77;
+    border-radius: 5px;
+    box-shadow: 5px 10px #261D1A;
+}
+
+.assignment img{
+    width: 200px;
+    border: 2px solid #734D2D;
+    margin-right: 20px ;
+    border-radius: 5px;
+    box-shadow: 2px 2px #8B4513;
+}
+
+h1{
+    color:#261D1A;
+    text-align: center;
+}
+
+p{
+    color: #594936;
+}
+a{
+    text-decoration: none;
+    color: #4C6173;
+}
+
+.assignment a:hover{
+    color: #261D1A;
+}
