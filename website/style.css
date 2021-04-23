@@ -9,11 +9,11 @@ body {
 
 @font-face {
   font-family: "alien-encounter";
-  src: url(/website/Alien-Encounters-Regular.ttf);
+  src: url(./Alien-Encounters-Regular.ttf);
 }
 @font-face {
   font-family: "alien-encounter-italic";
-  src: url(/website/Alien-Encounters-Italic.ttf);
+  src: url(./Alien-Encounters-Italic.ttf);
 }
 
 .assignment {
