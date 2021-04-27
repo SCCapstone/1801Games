@@ -41,8 +41,8 @@ public class Dev_Move : MonoBehaviour
     void Start()
     {
     // intiates boost and its timer
-        //QualitySettings.vSyncCount = 0;
-        //Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
         animator = GetComponent<Animator>();
         moveSpeed = defaultSpeed;
         boostTimer = 0;
