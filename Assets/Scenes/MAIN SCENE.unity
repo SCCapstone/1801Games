@@ -1411,13 +1411,19 @@ MonoBehaviour:
   - {fileID: 1133718699642429646, guid: 40d3fd3dd6e46bd459bfc95de18ba2f3, type: 3}
   - {fileID: 5427185424552841594, guid: a0da3ba93cf056d4f96946bf329bfd72, type: 3}
   - {fileID: 1550867500653621421, guid: 9b0887de7003e8e4babe79a38b2abf0c, type: 3}
+  - {fileID: 7839454614979728269, guid: 654e05065c35f2a4b94ecd2a83e85d04, type: 3}
+  - {fileID: 7892874869395912920, guid: a00ff1065650662489b0d7575bd2fea9, type: 3}
   proceduralGenerationHard_list:
   - {fileID: 3836765714539582844, guid: 7e53b77c3ccbb5e40a2ea44960ca2fb7, type: 3}
   - {fileID: 5410751532538899376, guid: 29c2aa383eac82b409fd137fc4d004b9, type: 3}
   - {fileID: 1380557999441260135, guid: b9b91550c52e0c64086dec7ff3ae8311, type: 3}
+  - {fileID: 2848497754126381127, guid: c8ea05d8ca25d2948b00c48d9aa6bfab, type: 3}
+  - {fileID: 579780867609623212, guid: 930d476c163cb3f41bcce42ac32e6e4b, type: 3}
   proceduralGenerationImp_list:
   - {fileID: 7756664617015486664, guid: 090257dbbd5116e47a7ec4aca8960917, type: 3}
   - {fileID: 1207848443803959241, guid: 06c1c75e43a3faa4c94f54c2ac135e36, type: 3}
+  - {fileID: 2513007418514547518, guid: 1a0c6c84e57104344ba93fd3bb1be656, type: 3}
+  - {fileID: 6004780740238576993, guid: f4079654647a2ec42ac3156fd714b465, type: 3}
   player: {fileID: 430191167}
 --- !u!4 &457727555
 Transform:
