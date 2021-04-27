@@ -1,6 +1,6 @@
 # 1801Games
 
-Galaxy Dash is a mobile 2D-Platformer game where the player has to survive for as long as possible while collecting items and powerups to attain the highest score possible. 
+Space Dash is a mobile 2D-Platformer game where the player has to survive for as long as possible while collecting items and powerups to attain the highest score possible. 
 
 ## External Requirements
 * [Visual Studio Code] (https://code.visualstudio.com) 
