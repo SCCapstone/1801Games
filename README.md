@@ -2,6 +2,8 @@
 
 Space Dash is a mobile 2D-Platformer game where the player has to survive for as long as possible while collecting items and powerups to attain the highest score possible. 
 
+# Demo video link: https://sccapstone.github.io/1801Games/
+
 ## External Requirements
 * [Visual Studio Code] (https://code.visualstudio.com) 
   * VS Code Extensions Needed:
